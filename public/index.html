@@ -1,0 +1,45 @@
+<html lang="en" ng-app="BirdsApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
+    <script src="js/app.js"></script>
+  <title>Document</title>
+</head>
+<body ng-controller="MainController as ctrl">
+  <div class="container">
+
+    <form ng-submit="ctrl.createBird()">
+      <input 
+      ng-model="ctrl.createForm.type" 
+      type="text" 
+      placeholder="Bird name" />
+
+      <input 
+      ng-model="ctrl.createForm.origin" 
+      type="url" 
+      placeholder="Bird origin" />
+
+      <input 
+      ng-model="ctrl.createForm.image" 
+      type="text" 
+      placeholder="Bird image" />
+
+      <input type="submit" value="Create New Bird" />
+    </form>
+
+    <div class="details">
+      <h3>Bird Info:</h3>
+      <hr>
+      <h4> {{ ctrl.bird.type }} </h4>
+      <h4> {{ ctrl.bird.origin }} </h4>
+      <h4> {{ ctrl.bird.url }} </h4>
+    </div>
+
+  </div>
+</body>
+</html>
+
+type: {type: String, required: true},
+  origin: String,
+  image: String
