@@ -1,0 +1,24 @@
+{
+  "name": "bird_sighting",
+  "version": "1.0.0",
+  "description": "Roy Sanfilipo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vainakh/Bird_Sighting.git"
+  },
+  "author": "Roy and Adlan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vainakh/Bird_Sighting/issues"
+  },
+  "homepage": "https://github.com/Vainakh/Bird_Sighting#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19"
+  }
+}
