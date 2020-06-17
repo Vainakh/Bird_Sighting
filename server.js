@@ -19,10 +19,6 @@ mongoose.connection.once('open', ()=>{
     console.log('I am connected to mongoose');
 });
 
-app.get('/', (req, res)=>{
-        res.send('hello world');
-    });
-
 
 app.listen(3000, ()=>{
     console.log('cherp cherp');

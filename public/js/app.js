@@ -8,6 +8,17 @@ app.controller("MainController", ['$http', '$scope', function($http, $scope){
     image: $scope.image
   }
 
+  this.deleteBird = (id) => {
+    $http({
+      method: 'DELETE',
+      url: '/birds/' + id
+    }).then (response => {
+      console.log(response.data)
+      const removeByIndex = this.birds.findIndex(bird => bird._id === id)
+      this.birds.splice(removeByIndex, 1)
+    })
+  }
+
   this.createBird = () => {
     this.h5 = "Birdies!!!"
     this.createForm = {};

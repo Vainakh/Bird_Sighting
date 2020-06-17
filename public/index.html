@@ -10,30 +10,31 @@
   <div class="container">
 
     <form name="form.name=form" ng-submit="ctrl.createBird()">
-      <input 
-      ng-model="form.name" 
-      type="text" 
+      <input
+      ng-model="form.name"
+      type="text"
       placeholder="Bird name" />
 
-      <input 
-      ng-model="form.origin" 
-      type="text" 
+      <input
+      ng-model="form.origin"
+      type="text"
       placeholder="Bird origin" />
 
-      <input 
-      ng-model="form.image" 
-      type="url" 
+      <input
+      ng-model="form.image"
+      type="url"
       placeholder="Bird image" />
 
       <input type="submit" value="Create New Bird" />
     </form>
     <h3>Bird Info:</h3>
     <div ng-repeat="bird in ctrl.birds" class="details">
-      
+
       <hr>
       <h4> {{ bird.type }} </h4>
       <h4> {{ bird.origin }} </h4>
       <img ng-src="{{ bird.image }}" alt="">
+      <button ng-click="ctrl.deleteBird(bird._id)">Remove Bird</button>
     </div>
 
   </div>
