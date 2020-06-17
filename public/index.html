@@ -3,15 +3,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
-    <script src="js/app.js"></script>
+  <script src="js/app.js"></script>
   <title>Document</title>
 </head>
 <body ng-controller="MainController as ctrl">
+  <h1>My Spotted Birds</h1>
   <div class="container">
 
-    <form name="form.name=form" ng-submit="ctrl.createBird()">
+    <form name="form.type=form" ng-submit="ctrl.createBird()">
       <input
-      ng-model="form.name"
+      ng-model="form.type"
       type="text"
       placeholder="Bird name" />
 
@@ -35,6 +36,27 @@
       <h4> {{ bird.origin }} </h4>
       <img ng-src="{{ bird.image }}" alt="">
       <button ng-click="ctrl.deleteBird(bird._id)">Remove Bird</button>
+      <button ng-if="$index !== ctrl.indexOfEditFormToShow"
+              ng-click="ctrl.indexOfEditFormToShow = $index">
+              Edit Bird</button>
+      <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editBird(bird._id)">
+        <input
+        ng-model="ctrl.updatedType"
+        type="text"
+        placeholder="Bird name" />
+
+        <input
+        ng-model="ctrl.updatedOrigin"
+        type="text"
+        placeholder="Bird origin" />
+
+        <input
+        ng-model="ctrl.updatedImage"
+        type="url"
+        placeholder="Bird image" />
+
+        <input type="submit" value="Submit Edits" />
+      </form>
     </div>
 
   </div>

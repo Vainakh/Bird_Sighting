@@ -3,9 +3,27 @@ const app = angular.module('BirdsApp', []);
 app.controller("MainController", ['$http', '$scope', function($http, $scope){
 
   $scope.form = {
-    name: $scope.name,
+    type: $scope.type,
     origin: $scope.origin,
     image: $scope.image
+  }
+
+  this.editBird = (id) => {
+    console.log('this is id:', id)
+    $http({
+      method: 'PUT',
+      url: '/birds/' + id,
+      data: {
+        type: this.updatedType,
+        origin: this.updatedOrigin,
+        image: this.updatedImage
+      }
+    }).then(response => {
+      this.updatedType = ''
+      this.updatedOrigin = ''
+      this.updatedImage = ''
+      this.getBirds();
+    })
   }
 
   this.deleteBird = (id) => {
