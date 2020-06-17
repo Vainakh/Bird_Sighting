@@ -14,7 +14,7 @@ const birdsController = require('./controllers/bird_controller');
 app.use('/birds', birdsController);
 
 // connect to mongoose
-mongoose.connect('mongodb://localhost:27017/birdscrud', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/birds', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', ()=>{
     console.log('I am connected to mongoose');
 });

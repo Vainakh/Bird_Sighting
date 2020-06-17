@@ -11,35 +11,31 @@
 
     <form ng-submit="ctrl.createBird()">
       <input 
-      ng-model="ctrl.createForm.type" 
+      ng-model="name" 
       type="text" 
       placeholder="Bird name" />
 
       <input 
-      ng-model="ctrl.createForm.origin" 
-      type="url" 
+      ng-model="origin" 
+      type="text" 
       placeholder="Bird origin" />
 
       <input 
-      ng-model="ctrl.createForm.image" 
-      type="text" 
+      ng-model="image" 
+      type="url" 
       placeholder="Bird image" />
 
       <input type="submit" value="Create New Bird" />
     </form>
-
-    <div class="details">
-      <h3>Bird Info:</h3>
+    <h3>Bird Info:</h3>
+    <div ng-repeat="bird in ctrl.birds" class="details">
+      
       <hr>
-      <h4> {{ ctrl.bird.type }} </h4>
-      <h4> {{ ctrl.bird.origin }} </h4>
-      <h4> {{ ctrl.bird.url }} </h4>
+      <h4> {{ bird.type }} </h4>
+      <h4> {{ bird.origin }} </h4>
+      <img ng-src="{{ bird.image }}" alt="">
     </div>
 
   </div>
 </body>
 </html>
-
-type: {type: String, required: true},
-  origin: String,
-  image: String

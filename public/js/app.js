@@ -1,13 +1,20 @@
 const app = angular.module('BirdsApp', []);
 
-app.controller("MainController", ['$http', function($http){
+app.controller("MainController", ['$http', '$scope', function($http, $scope){
+  
+  let data = {
+    name: $scope.name,
+    origin: $scope.origin,
+    image: $scope.image
+  } 
 
-
-  this.createHoliday = () => {
+  this.createBird = () => {
     this.h5 = "Birdies!!!"
     this.createForm = {};
     this.birds = [];
     this.bird = {};
+
+    console.log(data);
 
     $http({
       method: 'POST',
@@ -27,8 +34,9 @@ app.controller("MainController", ['$http', function($http){
       method: 'GET',
       url: '/birds'
     }).then(response => {
+      console.log(response)
       this.birds = response.data
-      // console.log(this.holidays)
+     
     }, error => {
       console.log(error)
     })

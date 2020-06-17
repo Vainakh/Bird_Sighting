@@ -14,10 +14,10 @@ birds.get('/', async (req, res) => {
 })
 
 // CREATE
-birds.post('/seed', async (req, res) => {
+birds.post('/', async (req, res) => {
   console.log("Hello World")
   console.log(req.body);
-  Bird.insertOne(req.body, (error, success) => {
+  Bird.create(req.body, (error, success) => {
     res.status(201).json(success);
     console.log(error);
   })
