@@ -6,7 +6,7 @@ app.controller("MainController", ['$http', '$scope', function($http, $scope){
     name: $scope.name,
     origin: $scope.origin,
     image: $scope.image
-  } 
+  }
 
   this.createBird = () => {
     this.h5 = "Birdies!!!"
@@ -23,7 +23,8 @@ app.controller("MainController", ['$http', '$scope', function($http, $scope){
     }).then(response => {
       // this.birds.unshift(response.data);
       // console.log(response);
-      this.createForm = {};//empties form field
+      // this.createForm = {};//empties form field
+      this.getBirds();
     }, error => {
       console.log(error);
     })//closes our .then()
@@ -36,7 +37,7 @@ app.controller("MainController", ['$http', '$scope', function($http, $scope){
     }).then(response => {
       console.log(response)
       this.birds = response.data
-     
+
     }, error => {
       console.log(error)
     })
