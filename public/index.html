@@ -9,19 +9,19 @@
 <body ng-controller="MainController as ctrl">
   <div class="container">
 
-    <form ng-submit="ctrl.createBird()">
+    <form name="form.name=form" ng-submit="ctrl.createBird()">
       <input 
-      ng-model="name" 
+      ng-model="form.name" 
       type="text" 
       placeholder="Bird name" />
 
       <input 
-      ng-model="origin" 
+      ng-model="form.origin" 
       type="text" 
       placeholder="Bird origin" />
 
       <input 
-      ng-model="image" 
+      ng-model="form.image" 
       type="url" 
       placeholder="Bird image" />
 

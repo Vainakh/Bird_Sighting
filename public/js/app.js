@@ -1,8 +1,8 @@
 const app = angular.module('BirdsApp', []);
 
 app.controller("MainController", ['$http', '$scope', function($http, $scope){
-  
-  let data = {
+
+  $scope.form = {
     name: $scope.name,
     origin: $scope.origin,
     image: $scope.image
@@ -14,14 +14,14 @@ app.controller("MainController", ['$http', '$scope', function($http, $scope){
     this.birds = [];
     this.bird = {};
 
-    console.log(data);
+    console.log($scope.form);
 
     $http({
       method: 'POST',
       url: '/birds',
-      data: this.createForm
+      data: $scope.form
     }).then(response => {
-      this.birds.unshift(response.data);
+      // this.birds.unshift(response.data);
       // console.log(response);
       this.createForm = {};//empties form field
     }, error => {
