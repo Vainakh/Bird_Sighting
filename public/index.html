@@ -1,0 +1,70 @@
+<html lang="en" ng-app="BirdsApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  </script>
+  <title>Birdwatching</title>
+</head>
+<body ng-controller="MainController as ctrl">
+    <header>
+      <h1>My Birds</h1>
+      <h2>I've spotted a bird!</h2>
+      <form name="form.type=form" ng-submit="ctrl.createBird()">
+        <input
+        ng-model="form.type"
+        type="text"
+        placeholder="Bird name" />
+
+        <input
+        ng-model="form.origin"
+        type="text"
+        placeholder="Bird origin" />
+
+        <input
+        ng-model="form.image"
+        type="url"
+        placeholder="Bird image" />
+
+        <input type="submit" value="Add New Bird!" />
+      </form>
+    </header>
+      <div class="container">
+          <h3>Catalog of Birds:</h3>
+          <div class="mybirds">
+          <div ng-repeat="bird in ctrl.birds" class="details">
+            <div class="onebird"
+              <hr>
+              <h4>Name: {{ bird.type }} </h4>
+              <h4>Place of origin: {{ bird.origin }} </h4>
+              <img ng-src="{{ bird.image }}" alt="">
+              <button ng-click="ctrl.deleteBird(bird._id)">Remove Bird</button>
+              <button ng-if="$index !== ctrl.indexOfEditFormToShow"
+                      ng-click="ctrl.indexOfEditFormToShow = $index">
+                      Edit Bird</button>
+              <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editBird(bird._id)">
+                <input
+                ng-model="ctrl.updatedType"
+                type="text"
+                ng-value="bird.type" />
+
+                <input
+                ng-model="ctrl.updatedOrigin"
+                type="text"
+                ng-value="bird.origin" />
+
+                <input
+                ng-model="ctrl.updatedImage"
+                type="url"
+                ng-value="bird.image" />
+
+                <input type="submit" value="Submit Edits" />
+              </form>
+            </div>
+        </div>
+      </div>
+  </div>
+</body>
+</html>
