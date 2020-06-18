@@ -66,7 +66,6 @@ app.controller("MainController", ['$http', '$scope', function($http, $scope){
     }).then(response => {
       console.log(response)
       this.birds = response.data
-
     }, error => {
       console.log(error)
     })
